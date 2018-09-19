@@ -2,26 +2,25 @@
 #include <fstream>
 #include <stdlib.h>
 
-
 using namespace std;
 
-int main(){
+int main() {
 
     ifstream in("data.txt");
 
     string line;
     int cur;
-    int sum=0;
+    int sum = 0;
     string number;
 
-    for(int i=49;i>0;i--) {
+    for (int i = 49; i > 0; i--) {
 
-        while(getline(in,line)) {
-             cur = (int)line[i];
-             sum += cur;
+        while (getline(in, line)) {
+            cur = (int)line[i];
+            sum += cur;
         }
         number =
-        sum = 0;
+            sum = 0;
     }
 
     return 0;
