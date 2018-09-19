@@ -13,9 +13,20 @@ function isPrime(number) {
 
 function findNthPrime(n) {
 
-    for (let i = 1; i <= n; i++) {
-        
+    let primeCounter = 0;
+    let nthPrime;
+    
+    let i = 2;
+
+    while (primeCounter < n) {
+        if(isPrime(i)) {
+            primeCounter++;
+            nthPrime = i;
+        }
+        i++;
     }
+    
+    return nthPrime;
 }
 
 console.log(findNthPrime(10001));
