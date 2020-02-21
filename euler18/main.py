@@ -1,4 +1,3 @@
-from math import sqrt
 triangle = [
 75,
 95, 64,
