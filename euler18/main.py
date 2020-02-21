@@ -16,24 +16,10 @@ triangle = [
 63, 66, 4, 68, 89, 53, 67, 30, 73, 16, 69, 87, 40, 31,
 4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23]
 
-arrayLength = len(triangle)
+def findMaxPathBruteForce(array, index, i):
+    arrayLength = len(array)
+    if(index >= arrayLength):
+        return 0
+    return array[index] + max(findMaxPathBruteForce(array, index + i, i+1), findMaxPathBruteForce(array, index + i + 1, i+1))
 
-print(arrayLength)
-
-# na podstawie wzoru na sume ciagu artmetycznego wyliczam ile jest elementow w ostatnim rzedzie
-# n^2 + n = arrayLength
-# n = (-1 + sqrt(1 + 4*arrayLength))/2 biere zawsze dodatnie
-rowsCount = int((-1 + sqrt(1 + 4*arrayLength*2))/2) # liczba wierszy rowna sie liczbie elementow w ostatnim wierszu
- # wspolrzedna pierwszego elementu ostatniego wiersza (podstawy trojkata):
-print(arrayLength - rowsCount)
-print(triangle[arrayLength-rowsCount])
-
-# wlasciwy algorytm:
-sums = [4, 62, 98, 27, 23, 9, 70, 98, 73, 93, 38, 53, 60, 4, 23] # tymczasowo hard-coded
-
-for(i=arrayLength;i>0;i--):
-	for(j=0;j<i;j++):
-		if(ge(sums[j],sums[j+1])):
-			sums.append(triangle[tu policzyc] + sums[j])
-		else:
-			sums.append(triangle[tu tez] + sums[j+1])
+print(findMaxPathBruteForce(triangle, 0, 1))
